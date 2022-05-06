@@ -12,6 +12,7 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     }
 })
 
+
 module.exports = {
     seed: (req, res) => {
         sequelize.query(`
@@ -44,7 +45,10 @@ module.exports = {
             agent_id integer references agents(agent_id),
             agent_name varchar(30),
             agent_description varchar(10000),
-            position varchar(50)
+            agent_ability1 varchar(10000),
+            agent_ability2 varchar(10000),
+            agent_ability3 varchar(10000),
+            agent_image varchar(50000)
         );
         `).then(() => {
             console.log('DB seeded!')

@@ -76,21 +76,25 @@ module.exports = {
   },
 
   favorite: (req, res) => {
-    const {  agent_name  } = req.body;
+    const {  agent_name, agent_description, agent_image, user_id  } = req.body;
     console.log(req.body);
     sequelize.query(`
-          INSERT INTO users_fav(agentName)
-          VALUES('${agent_name}');
+          INSERT INTO users_fav(agent_name, agent_description, agent_image, user_id)
+          VALUES('${agent_name}', '${agent_description}', '${agent_image}', ${user_id});
       `).then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
   },
 
-  // getFavorite: (req, res) => {
-  //  sequelize.query(
-  //   `SELECT * FROM users_fav`
-  //  ).then(dbRes => res.status(200).send(dbRes[0]))
-  //  .catch(err => console.log(err))
-  // }
+  getFavorite: (req, res) => {
+    const { user_id } = req.query;
+    console.log(req.params)
+    console.log(req.query)
+    sequelize.query(
+    `SELECT agent_name, agent_description, agent_image FROM users_fav
+    WHERE user_id = ${user_id} `
+   ).then(dbRes => res.status(200).send(dbRes[0]))
+   .catch(err => console.log(err))
+  }
 
   // deleteFavorite: (req, res) => {
   //   sequelize.query(

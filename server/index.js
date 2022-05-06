@@ -15,7 +15,7 @@ const {
     login,
     register,
     favorite,
-    getFavorites, 
+    getFavorite, 
     deleteFavorite
 
 } = require('./controllers/auth')
@@ -28,7 +28,7 @@ app.post(`/api/register`, register)
 
 app.post(`/api/favorite`, favorite)
 
-// app.get('/api/favorite', getFavorites)
+app.get('/api/favorite', getFavorite)
 
 // app.delete('/api/favorite', deleteFavorite)
 
