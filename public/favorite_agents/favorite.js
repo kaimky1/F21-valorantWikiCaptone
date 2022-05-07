@@ -31,4 +31,7 @@ const displayFavorites = () => {
     })
 }
 
+
+
+
 displayFavorites();

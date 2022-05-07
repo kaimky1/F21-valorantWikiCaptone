@@ -34,11 +34,47 @@ module.exports = {
 
   favorite: (req, res) => {
     const {  agent_name, agent_description, agent_image, user_id  } = req.body;
-    console.log(req.body);
+    console.log(req.body)
     sequelize.query(`
-          INSERT INTO users_fav(agent_name, agent_description, agent_image, user_id)
-          VALUES('${agent_name}', '${agent_description}', '${agent_image}', ${user_id});
-      `).then(dbRes => res.status(200).send(dbRes[0]))
+      SELECT agent_name
+      FROM users_fav
+      WHERE user_id = ${user_id}
+    `)
+    .then(dbRes => {
+      let inDB='';
+      for(let i = 0; i < dbRes[0].length; i++){
+        if(dbRes[0][i].agent_name != agent_name){
+          inDB = false;
+        } else if(dbRes[0][i].agent_name == agent_name){
+          inDB = true;
+          console.log('Is name in DB?', inDB)
+          break;
+        }
+      }
+      console.log("After loop:", inDB)
+      if(inDB == false){
+        sequelize.query(`
+        INSERT INTO users_fav(agent_name, agent_description, agent_image, user_id)
+        VALUES('${agent_name}', '${agent_description}', '${agent_image}', ${user_id});
+          `)
+          res.status(200).send(dbRes[0])
+      }else if(inDB == true){
+        console.log("This should be true:", inDB)
+        res.status(400).send("Error: Agent already exists in favorites")
+      }
+
+      //somewhat working
+      // for(let i = 0; i < dbRes[0].length; i++)
+      // if(dbRes[0][i].agent_name === agent_name){
+      //   res.status(400).send("Error: Agent already exists in favorites")
+      // } else{
+      //   sequelize.query(`
+      // INSERT INTO users_fav(agent_name, agent_description, agent_image, user_id)
+      // VALUES('${agent_name}', '${agent_description}', '${agent_image}', ${user_id});
+      //   `)
+      // }
+      // res.status(200).send(dbRes[0])
+    })
       .catch(err => console.log(err))
   },
 
