@@ -18,7 +18,7 @@ const {
     getFavorite, 
     deleteFavorite
 
-} = require('./controllers/auth')
+} = require('./controllers/controller')
 
 app.post('/seed', seed)
 

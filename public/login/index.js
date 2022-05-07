@@ -5,30 +5,41 @@ const registerForm = document.querySelector('#register-form')
 
 const baseURL = `http://localhost:4004/api`
 
+//login
 const login = body => axios.post(`${baseURL}/login`, body).then( res => {
   console.log(res.data)
-  const {username, password, user_id} = res.data[0];
-  createUserCard(res.data[0])
+  const {username, user_id} = res.data[0];
   window.localStorage.setItem('username', username)
   window.localStorage.setItem('userID', user_id)
-  window.location.href = '../agents/agents.html'
+  window.location.href = '../welcome/welcome.html'
 }).catch(err => {
   console.log(err)
   alert('Uh oh. Your request did not work.')
 })
+
+//register
 const register = body => axios.post(`${baseURL}/register`, body).then(res => {
-  // createUserCard(res.data)
   console.log('registration successful!')
 }).catch(err => {
   console.log(err)
   alert('Uh oh. Your request did not work.')
 })
 
+
+//handler functions
 function loginSubmitHandler(e) {
     e.preventDefault()
 
     let username = document.querySelector('#login-username')
     let password = document.querySelector('#login-password')
+
+    if (!username.value) {
+      alert("You must enter a username!")
+      return
+  } else if (!password.value) {
+      alert("You must enter a password!")
+      return
+  }
 
     let bodyObj = {
         username: username.value,
@@ -54,7 +65,23 @@ function registerSubmitHandler(e) {
   let password = document.querySelector('#register-password')
   let password2 = document.querySelector('#register-password-2')
 
-  if (password.value !== password2.value) {
+  if(!username.value){
+    alert("Please enter a username")
+    return
+  }
+  else if(!email.value){
+    alert("You need to enter a password!")
+    return
+  }
+  else if(!firstName.value){
+    alert("Enter a first name")
+    return
+  }
+  else if(!lastName.value){
+    alert("Enter a last name")
+    return
+  }
+  else if (password.value !== password2.value) {
     alert("Your passwords need to match.")
     return
   }
@@ -77,20 +104,6 @@ function registerSubmitHandler(e) {
   password2.value = ''
 }
 
-function createUserCard(data) {
-    userContainer.innerHTML = ''
-    const userCard = document.createElement('div')
-    userCard.classList.add('user-card')
-
-    userCard.innerHTML = `<p class="username">Username: ${data.username}</p>
-    <p class="email">Email: ${data.email}</p>
-    <p class="first-name">First Name: ${data.firstName}</p>
-    <p class="last-name">Last Name: ${data.lastName}</p>
-    `
-
-
-    userContainer.appendChild(userCard)
-}
 
 loginForm.addEventListener('submit', loginSubmitHandler)
 registerForm.addEventListener('submit', registerSubmitHandler)

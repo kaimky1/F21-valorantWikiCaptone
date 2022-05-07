@@ -17,16 +17,20 @@ var config = {
      
       const agentCard = document.createElement('div')
       agentCard.id = name
-      agentCard.innerHTML = `<h2 id=${name}>${name}</h2>
+      agentCard.className = 'agentCard'
+      agentCard.innerHTML = `<h2 class='agentName' id=${name}>${name}</h2>
       <button id='agent-${i}' class='favBtn'>Add to Favorite</button>
       <img id='agent' src=${res.data.data[i].fullPortrait} />
-      <p>${description}</p>
+      <p class='agentDescription'>${description}</p>
       <p></p>
       `
       abilities.map(ability => {
         let slot = document.createElement('h3')
+        slot.className = 'slot'
         let abilityName = document.createElement('h4')
+        abilityName.className='abilityName'
         let abilityDescription = document.createElement('p')
+        abilityDescription.className = 'abilityDescription'
         slot.innerText = ability.slot;
         abilityName.innerText = ability.displayName;
         abilityDescription.innerText = ability.description;
