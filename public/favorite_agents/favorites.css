@@ -88,6 +88,10 @@
 	 background:#364966;
 	 transition: all 0.3s ease;
  }
+
+ p{
+	font-size: 30px;
+}
  
  .navbar__links:hover{
 	 color:#fa4454;
@@ -185,3 +189,4 @@
 		 transform:traslateY(-8px) rotate(-45deg);
 	 }
  }
+

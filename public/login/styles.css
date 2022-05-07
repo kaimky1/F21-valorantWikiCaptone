@@ -15,13 +15,14 @@ header {
   justify-content: center; 
   align-items: center;
   color: white;
-  background: black
+  background: black;
 }
 
 main {
   display: flex; 
   justify-content: center;
-  background: #fa4454
+  background: fa4454;
+  
 }
 
 h1{
@@ -47,10 +48,15 @@ form h1 {
 
 button {
   background-color: #232323;
-  width: 75px;
-  height: 25px;
+  width: 80%;
+  font-weight: bold;
+  font-size: 1.1 rem;
+  height: 40px;
   color: white;
   border: none;
+  border-radius: 4px;
+  outline: none;
+  cursor:pointer;
   margin: 5px;
 }
 
@@ -123,3 +129,100 @@ input[type='password'] {
 .btns-container > button {
   width: 20px;
 }
+
+#register-username{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#register-email{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#register-firstName{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#register-lastName{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#register-password{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#register-password-2{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#login-password{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+#login-username{
+  display:block;
+  width: 90%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+}
+
+button:hover{
+  background:#364966;
+  transition: all 0.3s ease;
+}
+
+
+
+

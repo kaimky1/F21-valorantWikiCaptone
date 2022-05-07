@@ -9,8 +9,13 @@ const displayFavorites = () => {
         }
     })
     .then((res) => {
-        console.log(res.data)
-
+        console.log(res.data.length)
+        if(res.data.length === 0){
+            noData = document.createElement('div')
+            noData.id = 'noData'
+            noData.innerHTML = `<p> You have no favorited agents. </p>`
+            agentContainer.appendChild(noData)
+        }
         for(let i = 0; i < res.data.length; i++) {
 
 

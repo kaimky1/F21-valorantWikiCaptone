@@ -14,12 +14,13 @@ const login = body => axios.post(`${baseURL}/login`, body).then( res => {
   window.location.href = '../welcome/welcome.html'
 }).catch(err => {
   console.log(err)
-  alert('Uh oh. Your request did not work.')
+  alert('Entered wrong username and password!')
 })
 
 //register
 const register = body => axios.post(`${baseURL}/register`, body).then(res => {
   console.log('registration successful!')
+  alert('Registration was successful!')
 }).catch(err => {
   console.log(err)
   alert('Uh oh. Your request did not work.')
