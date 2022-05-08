@@ -80,4 +80,12 @@ var config = {
       alert("Agent already exists in Favorites!")
     })}
 
+    const signOut = document.getElementById('signout')
+
+    signOut.addEventListener('click', () => {
+        window.localStorage.removeItem('username')
+        window.localStorage.removeItem('userID')
+    })
+
+
 

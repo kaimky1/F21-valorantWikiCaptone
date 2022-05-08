@@ -87,12 +87,17 @@ module.exports = {
     WHERE user_id = ${user_id} `
    ).then(dbRes => res.status(200).send(dbRes[0]))
    .catch(err => console.log(err))
+  },
+
+  deleteFavorite: (req, res) => {
+    const { name } = req.params;
+    console.log(req.params)
+    console.log(name)
+    sequelize.query(
+      `DELETE FROM users_fav
+      WHERE agent_name = '${name}'
+      `
+    ).then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => console.log(err))
   }
-
-  // deleteFavorite: (req, res) => {
-  //   sequelize.query(
-  //     ``
-  //   )
-  // }
-
 }

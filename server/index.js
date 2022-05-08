@@ -30,6 +30,6 @@ app.post(`/api/favorite`, favorite)
 
 app.get('/api/favorite', getFavorite)
 
-// app.delete('/api/favorite', deleteFavorite)
+app.delete('/api/favorite/:name', deleteFavorite)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
