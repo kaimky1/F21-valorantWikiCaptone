@@ -87,5 +87,8 @@ var config = {
         window.localStorage.removeItem('userID')
     })
 
+    const welcomeBanner = document.getElementById('welcome-banner')
+    welcomeBanner.innerText += ' ' + window.localStorage.getItem('username') + '!' + ' Read more about the agents and select your favorite!'
+
 
 

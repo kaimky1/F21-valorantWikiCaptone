@@ -155,6 +155,22 @@
 	padding: 20px 5px 0px 0px;
 }
 
+#welcome{
+	background: black;
+}
+#welcome-banner{
+    text-align:center;
+	font-size: 3rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    z-index: 999;
+
+} 
 
 
  
