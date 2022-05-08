@@ -222,7 +222,21 @@ button:hover{
   background:#364966;
   transition: all 0.3s ease;
 }
+.class{
+  display:flex;
+}
+.login{
+  display: flex;
+}
+.register{
+  display:flex;
+}
 
+.main2{
+  display: flex;
+}
 
-
+#background-video{
+  z-index: -999;
+}
 

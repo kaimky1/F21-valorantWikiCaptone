@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorite Agents</title>
-    <link rel="stylesheet" href="./favorites.css"/>
+    <title>Skins HTML</title>
+    <link rel="stylesheet" href="./skins.css"/>
 </head>
 <body>
     <nav class="navbar">
@@ -26,7 +26,7 @@
                     <a href="../favorite_agents/favorite.html" class="navbar__links">Favorited Agents</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="../skins/skins.html" class="navbar__links">Skins</a>
+                    <a href="./skins.html" class="navbar__links">Skins</a>
                 </li>
                 <li class="navbar__item">
                     <a href="../favorite_skins/favoriteskin.html" class="navbar__links">Skins Wishlist</a>
@@ -37,15 +37,16 @@
             </ul>
         </div>
     </nav>
-    <div>
-        <div id='favoriteTitle'>
-            <h1 id="favorite">Favorited Agents</h1>
-        </div>
-        <div id="agent__container">
+    <div class="main-container1">
+        <!-- <video id="background-video" autoplay loop muted>
+            <source src="../videos/agent-background-generic.mp4" type = video/mp4>
+        </video> -->
+        <div class="main__content">
+            <div id="skins__container">
+            </div>
         </div>
     </div>
-    
     <script src="../../node_modules/axios/dist/axios.min.js"></script>
-    <script src="./favorite.js"></script>
+    <script src="./skins.js"></script>
 </body>
 </html>

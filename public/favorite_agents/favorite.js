@@ -58,13 +58,6 @@ const deleteFavorite = (name) => {
 }
 
 
-const signOut = document.getElementById('signout')
-
-    signOut.addEventListener('click', () => {
-        window.localStorage.removeItem('username')
-        window.localStorage.removeItem('userID')
-    })
-
 
 
 

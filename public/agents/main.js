@@ -26,7 +26,6 @@ var config = {
       </div>
       <img id='agent' src=${res.data.data[i].fullPortrait} />
       <p class='agentDescription'>${description}</p>
-      <p></p>
       `
      
       abilities.map(ability => {

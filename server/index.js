@@ -15,8 +15,11 @@ const {
     login,
     register,
     favorite,
-    getFavorite, 
-    deleteFavorite
+    favoriteSkin,
+    getFavorite,
+    getfavoriteSkin, 
+    deleteFavorite,
+    deleteFavoriteSkin
 
 } = require('./controllers/controller.js')
 
@@ -28,8 +31,14 @@ app.post(`/api/register`, register)
 
 app.post(`/api/favorite`, favorite)
 
+app.post(`/api/favoriteSkin`, favoriteSkin)
+
 app.get('/api/favorite', getFavorite)
 
+app.get(`/api/favoriteskin`, getfavoriteSkin)
+
 app.delete('/api/favorite/:name', deleteFavorite)
+
+app.delete('/api/favoriteskin/:name', deleteFavoriteSkin)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

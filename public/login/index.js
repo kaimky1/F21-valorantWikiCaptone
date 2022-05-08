@@ -11,7 +11,7 @@ const login = body => axios.post(`${baseURL}/login`, body).then( res => {
   const {username, user_id} = res.data[0];
   window.localStorage.setItem('username', username)
   window.localStorage.setItem('userID', user_id)
-  window.location.href = '../welcome/welcome.html'
+  window.location.href = '../agents/agents.html'
 }).catch(err => {
   console.log(err)
   alert('Entered wrong username and password!')

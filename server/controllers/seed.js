@@ -50,6 +50,12 @@ module.exports = {
             agent_ability3 varchar(10000),
             agent_image varchar(50000)
         );
+        create table users_favskin (
+            users_favskin serial primary key, 
+            user_id integer references users(user_id), 
+            skin_name varchar(30),
+            agent_image varchar(50000)
+        );
         `).then(() => {
             console.log('DB seeded!')
             res.sendStatus(200)
