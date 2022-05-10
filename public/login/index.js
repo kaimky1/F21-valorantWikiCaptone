@@ -71,7 +71,7 @@ function registerSubmitHandler(e) {
     return
   }
   else if(!email.value){
-    alert("You need to enter a password!")
+    alert("You need to enter an email!")
     return
   }
   else if(!firstName.value){

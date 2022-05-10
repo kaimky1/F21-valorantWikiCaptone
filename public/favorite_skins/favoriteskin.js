@@ -16,7 +16,7 @@ const displayFavorites = () => {
     if(res.data.length === 0){
     noData = document.createElement('div')
     noData.id = 'noData'
-    noData.innerHTML = `<p> You have no favorited agents. </p>`
+    noData.innerHTML = `<p> You have no skins in your wishlist! </p>`
     agentContainer.appendChild(noData)
     }
     for(let i = 0; i < res.data.length; i++) {
@@ -55,5 +55,12 @@ const deleteFavorite = (name) => {
 
     })
 }
+
+const signOut = document.getElementById('signout')
+
+signOut.addEventListener('click', () => {
+    window.localStorage.removeItem('username')
+    window.localStorage.removeItem('userID')
+})
 
 displayFavorites()

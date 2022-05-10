@@ -61,49 +61,19 @@ var config = {
         axios.post(`http://localhost:4004/api/favoriteSkin`, bodyObj).then( res => {
         console.log(res.data)
         console.log('favorite success')
-        alert('Added to favorites!')
+        alert('Added to wishlist!')
       }).catch(err => {
         console.log(err)
-        alert("Agent already exists in Favorites!")
+        alert(`${displayName} already exists in your wishlist!`)
       })}
 
-// const displayFavorites = () => {
+    
+const signOut = document.getElementById('signout')
 
-//     axios.get('http://localhost:4004/api/favoriteSkin/', {
-//         params: {
-//             user_id: `${userID}`
-//         }
-//     })
-//     .then((res) => {
-//         console.log(res.data[0].agent_name)
-//         console.log(res.data.length)
-//         console.log(res.data)
-    
-//     if(res.data.length === 0){
-//     noData = document.createElement('div')
-//     noData.id = 'noData'
-//     noData.innerHTML = `<p> You have no favorited agents. </p>`
-//     agentContainer.appendChild(noData)
-//     }
-//     for(let i = 0; i < res.data.length; i++) {
-//         let name = res.data[i].skin_name
-//         const favSkin = document.createElement('div')
-//         favSkin.id = name;
-//         favSkin.className = 'favSkinCard'
-//         favSkin.innerHTML = `<h2 id=${name}>${res.data[i].skin_name}</h2>
-//         <img id='skin' src=${res.data[i].agent_image} />
-//         <div class="centerDelete">
-//             <button class='deleteBtn' id="agent-${i}">Delete</button>
-//         </div>
-//         `
-//         agentContainer.appendChild(favAgent)
-    
-//         // let x = document.querySelector(`#agent-${i}`)
-//         // x.addEventListener('click', () => 
-//         // deleteFavorite(name)
-//         //      )
-//         }
-//     })
-// }
+signOut.addEventListener('click', () => {
+    window.localStorage.removeItem('username')
+    window.localStorage.removeItem('userID')
+})
+
 
 
