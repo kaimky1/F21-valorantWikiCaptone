@@ -1,6 +1,6 @@
 # Valorant Wiki/Wishlist
 
-Valorant Wiki/Wishlist is a web application built with HTML,CSS and JS to get an overview of each agent and the skins there are for each gun. 
+Valorant Wiki/Wishlist is a web application built with HTML,CSS and JS to get an overview of each agent and the skins there are for each weapon. 
 
 ## Project Background
 
