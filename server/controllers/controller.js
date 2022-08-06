@@ -14,7 +14,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 module.exports = {
     login: (req, res) => {
-      console.log('Logging In User')
       const { username, password } = req.body
       sequelize.query(`
           SELECT * FROM users
@@ -34,7 +33,6 @@ module.exports = {
 
   favorite: (req, res) => {
     const {  agent_name, agent_description, agent_image, user_id  } = req.body;
-    console.log(req.body)
     sequelize.query(`
       SELECT agent_name
       FROM users_fav
@@ -47,20 +45,16 @@ module.exports = {
           inDB = false;
         } else if(dbRes[0][i].agent_name == agent_name){
           inDB = true;
-          console.log('Is name in DB?', inDB)
           break;
         }
       }
-      console.log("After loop:", inDB)
       if(inDB == false){
         sequelize.query(`
         INSERT INTO users_fav(agent_name, agent_description, agent_image, user_id)
         VALUES('${agent_name}', '${agent_description}', '${agent_image}', ${user_id});
           `)
-          console.log(dbRes[0])
           res.status(200).send(dbRes[0])
       }else if(inDB == true){
-        console.log("This should be true:", inDB)
         res.status(400).send("Error: Agent already exists in favorites")
       }
     })
@@ -68,7 +62,6 @@ module.exports = {
   },
 
   favoriteSkin: (req, res) => {
-    console.log("This is the request being recieved in the back end", req.body)
     const {  skin_name, agent_image, user_id  } = req.body;
       sequelize.query(`
       SELECT skin_name
@@ -77,17 +70,14 @@ module.exports = {
     `)
     .then(dbRes => {
       let inDB='';
-      console.log("This is before the loop", dbRes[0])
       for(let i = 0; i < dbRes[0].length; i++){
         if(dbRes[0][i].skin_name != skin_name || dbRes[0] == null){
           inDB = false;
         } else if(dbRes[0][i].skin_name == skin_name){
           inDB = true;
-          console.log('Is name in DB?', inDB)
           break;
         }
       }
-      console.log("After loop:", inDB)
       if(inDB == false){
         sequelize.query(`
         INSERT INTO users_favskin(skin_name, agent_image, user_id)
@@ -95,7 +85,6 @@ module.exports = {
           `)
           res.status(200).send(dbRes[0])
       }else if(inDB == true){
-        console.log("This should be true:", inDB)
         res.status(400).send("Error: Agent already exists in favorites")
       }
     })
@@ -104,8 +93,6 @@ module.exports = {
 
   getFavorite: (req, res) => {
     const { user_id } = req.query;
-    console.log(req.params)
-    console.log(req.query)
     sequelize.query(
     `SELECT agent_name, agent_description, agent_image FROM users_fav
     WHERE user_id = ${user_id} `
@@ -115,8 +102,6 @@ module.exports = {
 
   getfavoriteSkin: (req, res) => {
     const { user_id } = req.query;
-    console.log(req.params)
-    console.log(req.query)
     sequelize.query(
     `SELECT skin_name, agent_image FROM users_favskin
     WHERE user_id = ${user_id} `
@@ -126,8 +111,6 @@ module.exports = {
 
   deleteFavorite: (req, res) => {
     const { name } = req.params;
-    console.log(req.params)
-    console.log(name)
     sequelize.query(
       `DELETE FROM users_fav
       WHERE agent_name = '${name}'
@@ -138,8 +121,6 @@ module.exports = {
 
   deleteFavoriteSkin: (req, res) => {
     const { name } = req.params;
-    console.log(req.params)
-    console.log(name)
     sequelize.query(
       `DELETE FROM users_favskin
       WHERE skin_name = '${name}'
