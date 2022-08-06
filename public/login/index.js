@@ -7,22 +7,18 @@ const baseURL = `http://localhost:4004/api`
 
 //login
 const login = body => axios.post(`${baseURL}/login`, body).then( res => {
-  console.log(res.data)
   const {username, user_id} = res.data[0];
   window.localStorage.setItem('username', username)
   window.localStorage.setItem('userID', user_id)
   window.location.href = '../agents/agents.html'
 }).catch(err => {
-  console.log(err)
   alert('Entered wrong username and password!')
 })
 
 //register
 const register = body => axios.post(`${baseURL}/register`, body).then(res => {
-  console.log('registration successful!')
   alert('Registration was successful!')
 }).catch(err => {
-  console.log(err)
   alert('Uh oh. Your request did not work.')
 })
 
