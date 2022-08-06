@@ -9,7 +9,6 @@ var config = {
   
       axios(config) 
       .then(function (res) { 
-        console.log(res.data.data[56].chromas[0].displayIcon)
         for(let i = 0; i < res.data.data.length; i++){
             let name = res.data.data[i].displayName;
     
@@ -25,21 +24,12 @@ var config = {
             skinsContainer.appendChild(skinCard)
 
             let x = document.querySelector(`#skin-${i}`)
-            console.log(`skin-${i}`)
-            console.log(res.data.data[i])
-
-            
 
             x.addEventListener('click', 
-            // () => console.log(res.data.data[i])
             () => favorite(body = {
               displayName: res.data.data[i].displayName,
               fullRender: res.data.data[i].chromas[0].fullRender
-          })
-            // () => console.log(body)
-            
-            )
-            
+          }))
         }
       
       })
@@ -59,11 +49,8 @@ var config = {
         console.log("This is the body being sent to back end", bodyObj)
 
         axios.post(`http://localhost:4004/api/favoriteSkin`, bodyObj).then( res => {
-        console.log(res.data)
-        console.log('favorite success')
         alert('Added to wishlist!')
       }).catch(err => {
-        console.log(err)
         alert(`${displayName} already exists in your wishlist!`)
       })}
 
@@ -74,6 +61,3 @@ signOut.addEventListener('click', () => {
     window.localStorage.removeItem('username')
     window.localStorage.removeItem('userID')
 })
-
-
-
