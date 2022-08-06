@@ -71,11 +71,8 @@ var config = {
 
       }
       axios.post(`http://localhost:4004/api/favorite`, bodyObj).then( res => {
-      console.log(res.data)
-      console.log('favorite success')
       alert('Added to favorites!')
     }).catch(err => {
-      console.log(err)
       alert("Agent already exists in Favorites!")
     })}
 
