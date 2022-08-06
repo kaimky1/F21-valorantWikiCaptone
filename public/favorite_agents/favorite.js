@@ -9,10 +9,6 @@ const displayFavorites = () => {
         }
     })
     .then((res) => {
-        console.log(res.data[0].agent_name)
-        console.log(res.data.length)
-        console.log(res.data)
-
         if(res.data.length === 0){
             noData = document.createElement('div')
             noData.id = 'noData'
@@ -43,13 +39,7 @@ const displayFavorites = () => {
 
 const deleteFavorite = (name) => {
     let {agent_name} = name;
-    console.log('hit')
-    console.log(name)
-    console.log(agent_name)
-
     axios.delete(`http://localhost:4004/api/favorite/${name}`).then(res => { 
-        console.log(res.data)
-        console.log(name)
         const element = document.getElementById(name)
         element.remove();
         alert(`${name} deleted!`)
