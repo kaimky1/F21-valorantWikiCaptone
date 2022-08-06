@@ -9,10 +9,6 @@ const displayFavorites = () => {
     }
     )
     .then((res) => {
-        console.log(res.data[0].skin_name)
-        console.log(res.data.length)
-        console.log(res.data)
-    
     if(res.data.length === 0){
     noData = document.createElement('div')
     noData.id = 'noData'
@@ -42,10 +38,6 @@ const displayFavorites = () => {
 
 const deleteFavorite = (name) => {
     let {agent_skin} = name;
-    console.log('hit')
-    console.log(name)
-    console.log(agent_skin)
-
     axios.delete(`http://localhost:4004/api/favoriteskin/${name}`).then(res => { 
         console.log(res.data)
         console.log(name)
